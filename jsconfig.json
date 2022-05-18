@@ -6,7 +6,8 @@
             "@Shared/*": ["src/Shared/*"],
             "@icons/*": ["src/Assets/icons/*"],
             "@styles/*": ["src/styles/*"],
-            "@Context/*": ["src/Context/*"]
+            "@Context/*": ["src/Context/*"],
+            "@Config/*": ["src/Config*"]
         }
     }
 }

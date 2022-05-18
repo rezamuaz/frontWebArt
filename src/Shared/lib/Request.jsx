@@ -1,5 +1,6 @@
 import { GraphQLClient, request, gql, batchRequests } from "graphql-request";
 import urlSlug from "url-slug";
+import { server } from "src/Config";
 import {
     ALL_POST_ID,
     ALL_POST_PAGINATE,
@@ -20,7 +21,7 @@ const URL = `${process.env.PROXY}`;
 export const SWRfetcher = (query, variables) => request(URL, query, variables);
 
 export async function QueryNoAuth(query, variables) {
-    const endpoint = `${process.env.PROXY}`;
+    const endpoint = `${server}`;
     const headers = { "Access-Control-Allow-Origin": "*" };
     const data = await request(endpoint, query, variables, headers);
     return data;
@@ -35,13 +36,13 @@ export async function QueryNoAuth(query, variables) {
     ]
  */
 export async function BatchQuery(QueryVariables) {
-    const endpoint = `${process.env.PROXY}`;
+    const endpoint = `${server}`;
     const data = await batchRequests(endpoint, QueryVariables);
     return data;
 }
 
 export async function GraphqlQueryAuth(query, variables) {
-    const endpoint = `${process.env.PROXY}`;
+    const endpoint = `${server}`;
     const client = new GraphQLClient(endpoint);
     const requestHeaders = {
         authorization: localStorage.getItem("token"),
@@ -51,7 +52,7 @@ export async function GraphqlQueryAuth(query, variables) {
 }
 
 export async function GraphqlMutation(mutation, variables) {
-    const endpoint = `${process.env.PROXY}`;
+    const endpoint = `${server}`;
     const graphQLClient = new GraphQLClient(endpoint, {
         headers: {
             authorization: localStorage.getItem("token"),
