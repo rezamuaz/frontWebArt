@@ -21,7 +21,7 @@ const URL = `${process.env.PROXY}`;
 export const SWRfetcher = (query, variables) => request(URL, query, variables);
 
 export async function QueryNoAuth(query, variables) {
-    const endpoint = URL;
+    const endpoint = `${process.env.PROXY}`;
     const headers = { "Access-Control-Allow-Origin": "*" };
     const data = await request(endpoint, query, variables, headers);
     return data;
@@ -36,13 +36,13 @@ export async function QueryNoAuth(query, variables) {
     ]
  */
 export async function BatchQuery(QueryVariables) {
-    const endpoint = URL;
+    const endpoint = `${process.env.PROXY}`;
     const data = await batchRequests(endpoint, QueryVariables);
     return data;
 }
 
 export async function GraphqlQueryAuth(query, variables) {
-    const endpoint = URL;
+    const endpoint = `${process.env.PROXY}`;
     const client = new GraphQLClient(endpoint);
     const requestHeaders = {
         authorization: localStorage.getItem("token"),
@@ -52,7 +52,7 @@ export async function GraphqlQueryAuth(query, variables) {
 }
 
 export async function GraphqlMutation(mutation, variables) {
-    const endpoint = URL;
+    const endpoint = `${process.env.PROXY}`;
     const graphQLClient = new GraphQLClient(endpoint, {
         headers: {
             authorization: localStorage.getItem("token"),

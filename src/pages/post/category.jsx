@@ -11,7 +11,6 @@ import {
 import { GraphqlMutation, SWRfetcher } from "@Shared/lib/Request";
 import LayoutPanel from "@Components/Templates/LayoutPanel";
 
-// const fetcher = query => request(`${process.env.BACKEND_ACCESS}`, query)
 const AddCategory = () => {
     const [category, setCategory] = useState("");
     const options = { revalidateIfStale: true };
