@@ -13,7 +13,7 @@ const SocialShared = () => {
         <div className="flex h-full w-full flex-row items-center justify-start gap-x-2 text-base">
             <span className="text-center">Share</span>
             <FacebookShareButton
-                url={process.env.API + asPath}
+                url={""}
                 quote={""}
                 hashtag={"#hashtag"}
                 description={"aiueo"}
@@ -23,7 +23,7 @@ const SocialShared = () => {
             <br />
             <TwitterShareButton
                 title={"test"}
-                url={"https://peing.net/ja/"}
+                url={""}
                 hashtags={["hashtag1", "hashtag2"]}
             >
                 <TwitterIcon size={32} round />
