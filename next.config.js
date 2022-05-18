@@ -1,11 +1,7 @@
-const isProd = process.env.NODE_ENV === "production";
 module.exports = {
     locales: ["id"],
     defaultLocale: "id",
     // you need to add:
-    assetPrefix: isProd
-        ? "https://main-website-next.vercel.app"
-        : "http://localhost:3000",
     eslint: {
         // Warning: This allows production builds to successfully complete even if
         // your project has ESLint errors.
@@ -43,13 +39,12 @@ module.exports = {
         contentSecurityPolicy:
             "default-src 'self'; script-src 'none'; sandbox;",
     },
-    reactStrictMode: true,
+    reactStrictMode: false,
     poweredByHeader: false,
     env: {
         CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
         CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
         CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-        BACKEND: process.env.BACKEND,
         PROXY: process.env.PROXY,
         API: process.env.API,
     },
