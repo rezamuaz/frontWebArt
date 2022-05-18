@@ -1,0 +1,19 @@
+.tiptap_menu {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.5rem;
+}
+.tiptap_menu button {
+    width: min-content;
+    height: min-content;
+    padding: 0.3rem;
+    border: 1px solid;
+    margin: 0.1rem 0.1rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    color: inherit;
+}

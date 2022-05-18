@@ -1,0 +1,27 @@
+import PaginationPageList from "@Components/Molecules/PostList/PaginationPageList";
+
+const Terbaru = (props) => {
+    return (
+        <>
+            <PaginationPageList props={props} />
+        </>
+    );
+};
+
+export default Terbaru;
+
+export const getStaticProps = async () => {
+    const res = await fetch(`${process.env.API}/api/terbaru/?&page=${1}`);
+    const data = await res.json();
+    const { totalPosts, totalPages, currentPage, perPage } = data.paginator;
+    const { posts } = data;
+    return {
+        props: {
+            totalPosts,
+            totalPages,
+            currentPage,
+            perPage,
+            posts,
+        },
+    };
+};

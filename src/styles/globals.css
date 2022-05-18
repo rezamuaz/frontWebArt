@@ -1,0 +1,207 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("../../public/Font/Lato/Lato-Regular.ttf");
+    /* src: url('../../public/Font/Lato/Lato-Black.ttf');
+	src: url('../../public/Font/Lato/Lato-BlackItalic.ttf');
+	src: url('../../public/Font/Lato/Lato-Bold.ttf');
+	src: url('../../public/Font/Lato/Lato-BoldItalic.ttf');
+	src: url('../../public/Font/Lato/Lato-Italic.ttf');
+	src: url('../../public/Font/Lato/'); */
+    font-weight: 400;
+    font-style: normal;
+}
+
+.remix-icons {
+    vertical-align: middle;
+}
+
+/* Basic editor styles
+.ProseMirror > * + * {
+    margin-top: 0.75em;
+}
+.ProseMirror ul,
+.ProseMirror ol {
+    padding: 0 1rem;
+}
+.ProseMirror li {
+    color: inherit;
+}
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+    line-height: 1.1;
+}
+.ProseMirror code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+}
+.ProseMirror pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: "JetBrainsMono", monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+}
+.ProseMirror pre code {
+    color: inherit;
+    padding: 0;
+    background: none;
+    font-size: 0.8rem;
+}
+.ProseMirror img {
+    max-width: 100%;
+    height: auto;
+}
+.ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+.ProseMirror hr {
+    border: none;
+    border-top: 2px solid rgba(13, 13, 13, 0.1);
+    margin: 2rem 0;
+}
+
+.ProseMirror a {
+    color: #68cef8;
+} */
+
+/* #__next {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: red;
+} */
+
+@layer components {
+    .inputAuth {
+        @apply h-min w-full rounded-sm border-2 border-solid border-slate-300 py-1 pl-1 text-base;
+    }
+
+    .menu-btn {
+        @apply invert-text relative h-10 w-10 p-2 focus:outline-none md:hidden xl:hidden;
+        .btn-head {
+            @apply absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform;
+        }
+        .btn-line {
+            @apply absolute block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out;
+        }
+    }
+
+    .dark-mode-toggle {
+        @apply h-fit w-fit;
+    }
+    .header {
+        @apply normal-bg fixed top-0 z-50 h-20 w-full shadow-md shadow-neutral-400 dark:shadow-neutral-900 md:relative;
+    }
+    .align {
+        @apply flex h-fit w-full flex-col pb-14 md:flex-row md:px-0 lg:w-10/12 lg:px-4;
+    }
+    .footer {
+        @apply normal-bg invert-text h-fit w-full flex-initial border-t-2 bg-transparent p-4;
+    }
+
+    .navigation {
+        @apply normal-bg invert-text sticky top-0 z-50 mx-auto hidden h-min w-full flex-col items-center overflow-x-hidden border-b-2 pb-2 font-Lato text-lg font-bold shadow-md md:flex;
+    }
+    .main {
+        @apply relative top-14 mx-auto mt-8 flex h-min w-full flex-col items-center px-4 md:top-0;
+    }
+    .sidebar {
+        @apply container h-fit w-full px-4 md:max-w-[320px] md:pl-12 lg:order-2;
+    }
+    .sidebar-admin {
+        @apply normal-bg flex h-full w-full flex-col items-center px-2 md:w-96;
+    }
+    .content {
+        @apply flex h-fit w-full flex-col gap-y-2 px-4 pt-6;
+    }
+    .icon-tiptap {
+        @apply m-[0.1rem] h-min w-min whitespace-nowrap rounded-[0.5rem] border-[1px] border-solid p-2;
+    }
+    .article-detail-body {
+        @apply prose prose-zinc dark:prose-invert md:prose-lg;
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-gray-50 text-gray-900 dark:bg-zinc-800 dark:text-gray-300;
+        @apply min-h-screen;
+    }
+
+    ::selection {
+        @apply bg-indigo-500 text-white;
+    }
+
+    input {
+        @apply rounded-md border-[1px] bg-white text-slate-800 dark:bg-white;
+    }
+}
+
+@layer utilities {
+    .custom-theme {
+        @apply bg-neutral-50 text-zinc-800 dark:bg-zinc-800 dark:text-slate-100;
+    }
+    .normal-bg {
+        @apply bg-zinc-50 dark:bg-zinc-800;
+    }
+    .invert-bg {
+        @apply bg-zinc-800 dark:bg-zinc-50;
+    }
+    .normal-text {
+        @apply text-zinc-50 dark:text-zinc-800;
+    }
+    .invert-text {
+        @apply text-zinc-800 dark:text-zinc-50;
+    }
+    .dark-text {
+        @apply text-zinc-800 dark:text-zinc-800;
+    }
+    .light-text {
+        @apply text-zinc-50 dark:text-zinc-50;
+    }
+    .invert-border {
+        @apply border-zinc-800 dark:border-zinc-50;
+    }
+    .normal-border {
+        @apply border-zinc-50 dark:border-zinc-800;
+    }
+    .normal-text-color {
+        @apply text-slate-800 dark:text-slate-800;
+    }
+    .custom-border {
+        @apply border-slate-800 dark:border-slate-100;
+    }
+
+    .layer-8 {
+        @apply bg-zinc-200 dark:bg-zinc-800;
+    }
+    .layer-9 {
+        @apply bg-zinc-50 dark:bg-zinc-900;
+    }
+
+    .form-color {
+        @apply bg-zinc-200 dark:bg-zinc-800;
+        input {
+            @apply border-0 bg-zinc-50 pl-3 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
+        }
+    }
+    .btn-red {
+        @apply bg-red-200 px-2 py-1 text-red-700 shadow dark:bg-red-700 dark:text-zinc-50;
+    }
+    .btn-blue {
+        @apply bg-blue-200 px-2 py-1 text-blue-700 shadow dark:bg-blue-700 dark:text-zinc-50;
+    }
+    .btn-green {
+        @apply bg-green-200 px-2 py-1 text-green-700 shadow dark:bg-green-700 dark:text-zinc-50;
+    }
+}
