@@ -6,17 +6,17 @@ import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import React, { useState } from "react";
 
-const forgot = () => {
+const Forgot = () => {
     const { showModal } = useModal();
     const [isloading, setLoading] = useState(false);
     const [mail, setMail] = useState();
     const router = useRouter();
 
     const ModalContent = (props) => <div>{props.value}</div>;
-    const handleModal = (e) => {
+    const HandleModal = (e) => {
         showModal(ModalContent, { value: e });
     };
-    async function resetHandler(e) {
+    async function ResetHandler(e) {
         e.preventDefault();
         try {
             setLoading(true);
@@ -25,10 +25,10 @@ const forgot = () => {
             };
             const data = await GraphqlMutation(USER_REQUEST_RESET, variables);
             setLoading(false);
-            handleModal(data.requestReset.message);
+            HandleModal(data.requestReset.message);
         } catch (error) {
             console.log(error);
-            handleModal(error.response.errors[0].message);
+            HandleModal(error.response.errors[0].message);
         } finally {
             setTimeout(() => {
                 router.push("/login");
@@ -53,7 +53,7 @@ const forgot = () => {
 
                 <form
                     className="mx-auto h-fit w-full rounded-lg text-base"
-                    onSubmit={(e) => resetHandler(e)}
+                    onSubmit={(e) => ResetHandler(e)}
                 >
                     <div className="mt-4 flex flex-col">
                         <input
@@ -79,4 +79,4 @@ const forgot = () => {
     );
 };
 
-export default forgot;
+export default Forgot;

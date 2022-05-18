@@ -14,7 +14,7 @@ import {
 } from "src/Assets/RemixIcon";
 import LayoutPanel from "@Components/Templates/LayoutPanel";
 
-const settings = () => {
+const Settings = () => {
     const [data, setData] = useState();
     const [edit, setEdit] = useState(true);
     const { showModal } = useModal();
@@ -199,4 +199,4 @@ const settings = () => {
     );
 };
 
-export default settings;
+export default Settings;

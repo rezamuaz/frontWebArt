@@ -16,7 +16,7 @@ import {
     UserStatus,
 } from "@Components/Molecules/Table/Column";
 
-const user = () => {
+const User = () => {
     const [userData, setUserData] = useState();
     const { showModal } = useModal();
     const [loading, setLoading] = useState(false);
@@ -120,4 +120,4 @@ const user = () => {
     );
 };
 
-export default user;
+export default User;

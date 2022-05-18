@@ -177,15 +177,17 @@ function Table({
                                 className="min-w-full divide-y divide-gray-200"
                             >
                                 <thead className="layer-9">
-                                    {headerGroups.map((headerGroup) => (
+                                    {headerGroups.map((headerGroup, i) => (
                                         <tr
+                                            key={i}
                                             {...headerGroup.getHeaderGroupProps()}
                                         >
                                             {headerGroup.headers.map(
-                                                (column) => (
+                                                (column, i) => (
                                                     // Add the sorting props to control sorting. For this example
                                                     // we can add them into the header props
                                                     <th
+                                                        key={i}
                                                         scope="col"
                                                         className="group px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
                                                         {...column.getHeaderProps(
@@ -224,9 +226,10 @@ function Table({
                                         prepareRow(row);
                                         return (
                                             <tr {...row.getRowProps()}>
-                                                {row.cells.map((cell) => {
+                                                {row.cells.map((cell, i) => {
                                                     return (
                                                         <td
+                                                            key={i}
                                                             {...cell.getCellProps()}
                                                             className="whitespace-nowrap px-4 py-3"
                                                             role="cell"

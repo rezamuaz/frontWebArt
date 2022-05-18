@@ -45,7 +45,7 @@ const EditPost = ({ id }) => {
             })
             .catch((error) => console.log(error))
             .finally(setLoading(false));
-    }, []);
+    }, [id]);
 
     const handleSet = (name) => {
         return ({ target: { value } }) => {

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-const reset = () => {
+const Reset = () => {
     const router = useRouter();
     const { showModal, hideModal } = useModal();
     const [data, setData] = useState({
@@ -18,7 +18,6 @@ const reset = () => {
     if (router.isFallback) {
         <LoadingScreen />;
     }
-    console.log(data);
     function handleChange(name, value) {
         return setData((oldValues) => ({ ...oldValues, [name]: value }));
     }
@@ -27,7 +26,6 @@ const reset = () => {
         let isSubscribed = true;
         async function userData() {
             const token = router.query.q;
-            console.log(token);
             if (isSubscribed) {
                 setData({ ...data, token: token });
             }
@@ -45,7 +43,6 @@ const reset = () => {
                 confirmPassword: data.confirm,
                 resetToken: data.token,
             };
-            console.log("variable", variables);
             const userReset = await GraphqlMutation(USER_RESET, variables);
             handleModal("change password success, please login again!");
             setTimeout(() => {
@@ -128,4 +125,4 @@ const reset = () => {
     );
 };
 
-export default reset;
+export default Reset;

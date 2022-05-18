@@ -30,6 +30,15 @@ const Profile = () => {
         return <LoadingScreen />;
     }
 
+    useEffect(() => {
+        async function getData() {
+            const res = await GraphqlQueryAuth(USER_GET_AUTH);
+            const { authUser } = res;
+            setUserData(authUser);
+        }
+        getData().catch(console.error);
+    }, [loading]);
+
     async function handleImage(e) {
         setLoading(true);
         setImage(e);
@@ -40,15 +49,6 @@ const Profile = () => {
         const data = await GraphqlMutation(USER_IMAGE, variables);
         setLoading(false);
     }
-
-    useEffect(() => {
-        async function getData() {
-            const res = await GraphqlQueryAuth(USER_GET_AUTH);
-            const { authUser } = res;
-            setUserData(authUser);
-        }
-        getData().catch(console.error);
-    }, [loading]);
 
     function handleEditName(e) {
         e.preventDefault();
@@ -96,6 +96,7 @@ const Profile = () => {
             }, 2000);
         }
     }
+
     async function handleSubmitEmail(e) {
         e.preventDefault();
         const variables = {

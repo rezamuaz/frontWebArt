@@ -10,7 +10,7 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 import useSWR from "swr";
 
-const search = (props) => {
+const Search = (props) => {
     const router = useRouter();
     const options = {
         fallbackData: props.fallback,
@@ -106,7 +106,7 @@ const search = (props) => {
     );
 };
 
-export default search;
+export default Search;
 
 export async function getServerSideProps({ query }) {
     const Latest = await loadLatest(1, 20, "PUBLISH");

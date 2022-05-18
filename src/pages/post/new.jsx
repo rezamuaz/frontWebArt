@@ -13,7 +13,7 @@ import {
 } from "@Components/Molecules";
 import SidebarAdmin from "@Components/Organism/SIdebarAdmin";
 
-const newPost = () => {
+const NewPost = () => {
     const initialState = {
         title: "",
         slug: "",
@@ -103,4 +103,4 @@ const newPost = () => {
     );
 };
 
-export default newPost;
+export default NewPost;
