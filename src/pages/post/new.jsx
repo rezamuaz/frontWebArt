@@ -11,7 +11,7 @@ import {
     SubmitNew,
     TagsCreate,
 } from "@Components/Molecules";
-import SidebarAdmin from "@Components/Organism/SIdebarAdmin";
+import SidebarAdmin from "@Components/Organism/SidebarAdmin";
 
 const NewPost = () => {
     const initialState = {

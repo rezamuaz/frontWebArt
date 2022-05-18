@@ -13,7 +13,7 @@ import { GraphqlQueryAuth } from "@Shared/lib/Request";
 import { POST_BY_ID } from "@Shared/lib/GraphqlSchema";
 import LayoutPanel from "@Components/Templates/LayoutPanel";
 import PostForm from "@Components/Molecules/PostForm";
-import SidebarAdmin from "@Components/Organism/SIdebarAdmin";
+import SidebarAdmin from "@Components/Organism/SidebarAdmin";
 
 const EditPost = ({ id }) => {
     const initialState = {
